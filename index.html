@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Expense Tracker</h1>
+        </header>
+
+        <main>
+            <!-- Add Expense Form -->
+            <section class="expense-form">
+                <h2>Add New Expense</h2>
+                <form id="expenseForm">
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="number" id="amount" required min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select id="category" required>
+                            <option value="food">Food</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="text" id="description" required>
+                    </div>
+                    <button type="submit">Add Expense</button>
+                </form>
+            </section>
+
+            <!-- Budget Section -->
+            <section class="budget-section">
+                <h2>Budget Management</h2>
+                <div class="budget-form">
+                    <div class="form-group">
+                        <label for="budgetCategory">Category:</label>
+                        <select id="budgetCategory">
+                            <option value="food">Food</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budgetAmount">Budget Amount:</label>
+                        <input type="number" id="budgetAmount" min="0" step="0.01">
+                    </div>
+                    <button id="setBudget">Set Budget</button>
+                </div>
+                <div id="budgetStatus"></div>
+            </section>
+
+            <!-- Expense List -->
+            <section class="expense-list">
+                <h2>Recent Expenses</h2>
+                <div class="expense-filters">
+                    <select id="filterCategory">
+                        <option value="all">All Categories</option>
+                        <option value="food">Food</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="month" id="filterMonth">
+                </div>
+                <div id="expensesList"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/expenseManager.js"></script>
+    <script src="js/budget.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 
