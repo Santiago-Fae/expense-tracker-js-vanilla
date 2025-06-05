@@ -62,6 +62,7 @@
                         <input type="number" id="budgetAmount" min="0" step="0.01">
                     </div>
                     <button id="setBudget">Set Budget</button>
+                    <button id="updateBudget">Update Budget</button>
                 </div>
                 <div id="budgetStatus"></div>
             </section>
@@ -81,14 +82,19 @@
                     <input type="month" id="filterMonth">
                 </div>
                 <div id="expensesList"></div>
+
+                <!-- Expense Chart -->
+                <h3>Expense Overview</h3>
+                <canvas id="expenseChart"></canvas>
             </section>
         </main>
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/expenseManager.js"></script>
     <script src="js/budget.js"></script>
     <script src="js/app.js"></script>
 </body>
-</html> 
+</html>

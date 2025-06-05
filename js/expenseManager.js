@@ -60,6 +60,33 @@ function loadExpenses() {
     }
 
     renderExpenses(expenses);
+    updateExpenseChart(expenses); // Update on the chart
+}
+
+function updateExpenseChart(expenses) {
+    const ctx = document.getElementById('expenseChart').getContext('2d');
+
+    // Group expenses by category
+    const categories = [...new Set(expenses.map(exp => exp.category))];
+    const amounts = categories.map(category =>
+        expenses.filter(exp => exp.category === category)
+                .reduce((sum, exp) => sum + exp.amount, 0)
+    );
+
+    // Create or update the chart
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: categories,
+            datasets: [{
+                label: 'Expenses by Category',
+                data: amounts,
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
 }
 
 // Render expenses list

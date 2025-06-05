@@ -66,6 +66,32 @@ function updateBudgetStatus() {
     budgetStatus.innerHTML = statusHTML || '<p>No budgets set yet.</p>';
 }
 
+// Select the update budget button
+const updateBudgetButton = document.getElementById('updateBudget');
+
+// Initialize event listeners for updating budget
+function initializeUpdateBudgetEvents() {
+    updateBudgetButton.addEventListener('click', handleUpdateBudget);
+}
+
+// Handle update budget button click
+function handleUpdateBudget() {
+    const category = document.getElementById('budgetCategory').value;
+    const newAmount = parseFloat(document.getElementById('budgetAmount').value);
+
+    if (isNaN(newAmount) || newAmount < 0) {
+        alert('Please enter a valid budget amount.');
+        return;
+    }
+
+    // Update budget for selected category
+    setBudget(category, newAmount);
+    updateBudgetStatus();
+
+    alert(`Budget updated for ${category}: $${newAmount.toFixed(2)}`);
+}
+
 // Initialize budget functionality
 initializeBudgetEvents();
+initializeUpdateBudgetEvents();
 updateBudgetStatus(); 
