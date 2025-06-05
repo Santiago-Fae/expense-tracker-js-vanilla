@@ -220,12 +220,15 @@ section {
 
 .bg-success {
     background-color: #d5f5e3;
+    border: 1px solid gainsboro;
 }
 
 .bg-warning {
     background-color: #fef9e7;
+    border: 1px solid gainsboro;
 }
 
 .bg-danger {
     background-color: #fadbd8;
+    border: 1px solid gainsboro;
 } 
